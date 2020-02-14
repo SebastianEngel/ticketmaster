@@ -1,5 +1,8 @@
 # ticketmaster
 
+## Flutter Wrapper
+
+The app used the [Flutter Wrapper](https://github.com/passsy/flutter_wrapper). Please use `./flutterw` to run any Flutter command.
 
 
 ## Architecture
