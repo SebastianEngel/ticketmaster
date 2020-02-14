@@ -1,8 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'event.freezed.dart';
+class Event {
+  Event({
+    @required this.name,
+    @required this.imageUrls,
+  })  : assert(name != null),
+        assert(imageUrls != null);
 
-@freezed
-abstract class Event with _$Event {
-  factory Event({@required String name, @required List<String> imageUrls}) = _Event;
+  final String name;
+  final List<String> imageUrls;
+  bool isFavorite = false;
 }

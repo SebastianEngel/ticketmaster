@@ -11,7 +11,6 @@ import 'package:ticketmaster/ui/events_view_model.dart';
 
 /// Screen showing the list of events.
 class EventsScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +22,9 @@ class EventsScreen extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return ChangeNotifierProvider<EventsViewModel>(
         create: (context) => EventsViewModel(
-          apiClient: locator<TicketmasterApiClient>(),
-          navigator: locator<AppNavigator>(),
-        )..onViewStart(),
+              apiClient: locator<TicketmasterApiClient>(),
+              navigator: locator<AppNavigator>(),
+            )..onViewStart(),
         child: Consumer<EventsViewModel>(
           builder: (context, viewModel, staticWidget) {
             if (viewModel.isInitialEventsLoading) {
@@ -82,14 +81,14 @@ class _EventItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           SizedBox(
-            width: 100,
+              width: 100,
               child: event.imageUrls.isNotEmpty
                   ? CachedNetworkImage(imageUrl: event.imageUrls.first, fit: BoxFit.cover)
                   : Center(child: Icon(Icons.camera_alt))),
           SizedBox(width: 8),
           Expanded(child: Text(event.name)),
           SizedBox(width: 8),
-          Icon(Icons.favorite_border)
+          Icon((!event.isFavorite ?? false) ? Icons.favorite_border : Icons.favorite, color: Colors.red),
         ],
       ),
     );

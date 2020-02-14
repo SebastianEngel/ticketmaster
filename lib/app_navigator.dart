@@ -11,7 +11,7 @@ class AppNavigator {
     rootNavigatorKey.currentState.pushNamed(_AppRoutes.eventDetails, arguments: {'event': event});
   }
 
-  static Map<String, Object> getRoutes(BuildContext context) {
+  static Map<String, WidgetBuilder> getRoutes(BuildContext context) {
     return {
       _AppRoutes.root: (context) => EventsScreen(),
       _AppRoutes.eventDetails: (context) {
